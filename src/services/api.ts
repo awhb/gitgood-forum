@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'redaxios';
 
 // TODO: Update for production
 const API_URL = 'http://localhost:8080';
