@@ -10,3 +10,8 @@ export const registerUser = (username: string, password: string) => {
 export const loginUser = (username: string, password: string) => {
     return axios.post(`${API_URL}/login`, { username, password });
 };
+
+export const getThreads = () => {
+    return axios.get(`${API_URL}/threads`);
+};
+
