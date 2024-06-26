@@ -8,7 +8,7 @@ interface Comment {
 }
 
 interface CommentListProps {
-  threadId: number;
+  threadId: string;
 }
 
 const CommentList: React.FC<CommentListProps> = ({ threadId }) => {

@@ -1,7 +1,7 @@
 // src/components/Forum/Thread.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { api } from '../../services/api';
+import { getThread } from '../../services/api';
 import CommentList from './CommentList';
 
 interface Thread {
@@ -16,7 +16,7 @@ const Thread: React.FC = () => {
   const [thread, setThread] = useState<Thread | null>(null);
 
   useEffect(() => {
-    
+    getThread(id!).then((response) => setThread(response.data));
   }, [id]);
 
   return (
@@ -26,7 +26,7 @@ const Thread: React.FC = () => {
           <h1>{thread.title}</h1>
           <p>{thread.content}</p>
           <small>by {thread.user.username}</small>
-          <CommentList threadId={thread.id} />
+          <CommentList threadId={thread.id.toString()} />
         </>
       ) : (
         <p>Loading...</p>

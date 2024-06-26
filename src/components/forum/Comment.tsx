@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createComment } from '../../services/api';
 
 interface CommentProps {
-  threadId: number;
+  threadId: string;
 }
 
 const Comment: React.FC<CommentProps> = ({ threadId }) => {
