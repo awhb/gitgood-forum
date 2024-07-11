@@ -35,9 +35,9 @@ export const getUser = async () => {
 /**
  * Registers a new user with the provided form data.
  *
- * @param {Object} prevState - The previous state object containing a message property.
+ * @param {Object} prevState - The previous state object containing message properties.
  * @param {FormData} formData - The form data containing the username, password, and confirmPassword fields.
- * @return {Promise<Object>} An object containing a message property indicating the result of the registration.
+ * @return {Promise<Object>} An object containing message properties indicating the result of the registration.
  */
 export const register = async (prevState: { success: string, error: string }, formData: FormData) => {
   const username = formData.get('username') as string;
@@ -48,7 +48,7 @@ export const register = async (prevState: { success: string, error: string }, fo
     return {
       success: '',
       error: 'Passwords do not match',
-    }
+    } as { success: string, error: string };
   }
   
   try {
@@ -61,19 +61,19 @@ export const register = async (prevState: { success: string, error: string }, fo
       return {
         success: data.message,
         error: '',
-      }
+      } as { success: string, error: string };
     } else {
       return {
         success: '',
         error: data.error || 'Unknown error',
-      }
+      } as { success: string, error: string };
     }
   } catch (error) {
     console.error(error);
     return {
       success: '',
       error: 'Unknown error',
-    }
+    } as { success: string, error: string };
   }
 }
 

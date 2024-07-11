@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { register } from '@/app/actions';
 import { useFormState, useFormStatus } from 'react-dom';
 
-const initialState = {
+const initialState: { success: string, error: string } = {
   success: '',
   error: '',
 };

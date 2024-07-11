@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { login } from '@/app/actions';
 import { useFormState, useFormStatus } from 'react-dom';
 
-const initialState = {
+const initialState: { message: string } = {
   message: '',
 };
 
