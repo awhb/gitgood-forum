@@ -1,0 +1,1 @@
+export type HandleFormSubmitType = (params: { error: string }, formData: FormData) => Promise<{ error: string }>;
