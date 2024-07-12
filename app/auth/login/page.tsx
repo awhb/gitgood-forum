@@ -31,7 +31,7 @@ export default function Login() {
           className="w-full p-2 border rounded my-2"
           required
         />
-        <button type="submit" aria-disabled={pending} className="w-full bg-blue-500 text-white p-2 rounded my-2">
+        <button type="submit" disabled={pending} aria-disabled={pending} className="w-full bg-blue-500 text-white p-2 rounded my-2">
           Login
         </button>
         <p className="text-red-500">{state.message}</p>
