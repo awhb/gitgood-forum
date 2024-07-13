@@ -1,7 +1,6 @@
 'use server';
 
 import Link from 'next/link';
-import { User } from '@/models/models';
 import { getUser, logout } from '@/app/actions';
 
 export default async function Navbar() {
