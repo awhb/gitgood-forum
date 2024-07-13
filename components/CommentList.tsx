@@ -1,22 +1,22 @@
-// src/components/CommentList.tsx
-export default function CommentList({ threadId }: { threadId: string }) {
-  // TODO: Fetch comments from API
-  const comments = [
-    { id: 1, content: 'Comment 1' },
-    { id: 2, content: 'Comment 2' },
-    { id: 3, content: 'Comment 3' },
-  ];
+'use server';
+
+import { Comment } from '@/models/models';
+import { getUser } from '@/app/actions';
+import CommentItem from './CommentItem';
+
+export default async function CommentList({ comments }: { comments: Comment[] }) {
+  const currentUser = await getUser();
   
   return (
-    <div>
-    <h2 className="text-xl font-bold my-4">Comments</h2>
-    <ul className="space-y-2">
-    {comments.map((comment) => (
-      <li key={comment.id} className="border p-2 rounded">
-      {comment.content}
-      </li>
-    ))}
-    </ul>
-    </div>
+    <>
+      { comments.length === 0 ?
+        <p>No comments found.</p> : 
+        <ul className="space-y-2">
+        {comments.map((comment) => (
+          <CommentItem key={comment.ID} comment={comment} currentUser={currentUser} />
+        ))}
+      </ul>
+      }
+    </>
   );
 }
