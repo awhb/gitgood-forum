@@ -1,28 +1,30 @@
 export interface User {
-    id: number;
+    ID: number;
     username: string;
-    createdAt: Date;
-    token: string;
+    CreatedAt: Date;
+    UpdatedAt: Date;
+    DeletedAt: Date;
 }
 
 export interface Comment {
     content: string;
     thread_id: number;
     user_id: number;
-    createdAt: Date;
-    updatedAt: Date;
-    user: User;
+    upvotes: number;
+    CreatedAt: Date;
+    UpdatedAt: Date;
+    DeletedAt: Date;
 }
 
 export interface Thread {
-    id: number;
-    createdAt: Date;
-    updatedAt: Date;
+    ID: number;
+    CreatedAt: Date;
+    UpdatedAt: Date;
+    DeletedAt: Date;
     title: string;
     content: string;
     tags: string[];
     comments: Comment[];
     user_id: number;
-    user: User;
     upvotes: number;
 }
