@@ -27,8 +27,8 @@ export default async function ThreadList() {
         <p>No threads found.</p> : 
         <ul className="space-y-2">
         {threads.map((thread) => (
-          <li key={thread.id} className="border p-2 rounded">
-            <Link href={`/threads/${thread.id}`}>
+          <li key={thread.ID} className="border p-2 rounded">
+            <Link href={`/threads/${thread.ID.toString()}`}>
               {thread.title}
             </Link>
           </li>
