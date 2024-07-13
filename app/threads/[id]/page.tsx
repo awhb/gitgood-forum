@@ -24,15 +24,16 @@ export default async function ThreadDetail({ params }: { params: { id: string } 
 
   return (
     <div className="container mx-auto px-4">
-      { thread ? 
-        <>
+      { !thread ? <p>No thread found.</p>
+        : <>
+          <p className="text-gray-500">Posted by {thread.user.username}</p>
           <h1 className="text-3xl font-bold my-4">{thread.title}</h1>
+          <p className="text-gray-500">Upvotes: {thread.upvotes}</p>
           <p>{thread.content}</p>
+          {/* <CommentList comments={thread.comments} /> */}
+          {/* <CommentForm /> */}
         </>
-        : <p>No thread found.</p>
       }
-      {/* <CommentList /> */}
-      {/* <CommentForm /> */}
     </div>
   );
 }
