@@ -1,15 +1,16 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { getUser } from './app/actions';
 
-export function middleware(request: NextRequest) {
-  const authToken = request.cookies.get('Authorization')?.value;
+export async function middleware(request: NextRequest) {
+  const user = await getUser();
   const { pathname } = request.nextUrl;
 
-  if (!authToken && !pathname.startsWith('/auth/')) {
+  if (!user && !pathname.startsWith('/auth/')) {
     return NextResponse.redirect(new URL('/auth/login', request.url));
   }
 
-  if (authToken && (pathname.startsWith('/auth/'))) {
+  if (user && (pathname.startsWith('/auth/'))) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
