@@ -7,10 +7,11 @@ export interface User {
 }
 
 export interface Comment {
+    ID: number;
     content: string;
     thread_id: number;
-    upvotes: number;
     user_id: number;
+    upvotes: number;
     user: User;
     CreatedAt: Date;
     UpdatedAt: Date;
