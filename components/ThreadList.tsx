@@ -28,7 +28,12 @@ export default async function ThreadList() {
         {threads.map((thread) => (
           <li key={thread.ID} className="border p-2 rounded">
             <Link href={`/threads/${thread.ID.toString()}`}>
-              {thread.title}
+              <div className="flex justify-between">
+                <p>{thread.title}</p>
+                <p className="text-gray-500">Posted by {thread.user.username}</p>
+                <p className="text-gray-500">Upvotes: {thread.upvotes}</p>
+                <p className="text-gray-500">Comments: {thread.comments.length}</p>
+              </div>
             </Link>
           </li>
         ))}
