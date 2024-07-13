@@ -20,7 +20,6 @@ export default async function ThreadList() {
     console.error('Error fetching threads: unknown error', error);
   }
 
-
   return (
     <>
       { threads.length === 0 ?
